@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from object_3d import *
+from object import *
 from camera import *
 from projection import *
 import pygame as pg
 
 
-class SoftwareRender:
+class Render:
     def __init__(self):
         pg.init()
         self.RES = self.WIDTH, self.HEIGHT = 1600, 900
@@ -31,7 +31,7 @@ class SoftwareRender:
                 elif line.startswith('f'):
                     faces_ = line.split()[1:]
                     faces.append([int(face_.split('/')[0]) - 1 for face_ in faces_])
-        return Object3D(self, vertex, faces)
+        return Object(self, vertex, faces)
 
     def draw(self):
         self.screen.fill(pg.Color('darkslategray'))
@@ -48,5 +48,5 @@ class SoftwareRender:
 
 
 if __name__ == '__main__':
-    app = SoftwareRender()
+    app = Render()
     app.run()

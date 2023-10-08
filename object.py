@@ -1,6 +1,6 @@
 import pygame as pg
 from numba import njit
-from matrix_functions import *
+from matrices import *
 
 
 @njit(fastmath=True)
